@@ -55,6 +55,10 @@ if st.button("Prediksi Gaji"):
     # Preprocessing
     df_ready = preprocess_for_prediction(df_input)
 
+    # Reindex agar fitur cocok dengan model
+    expected_features = model.feature_names_in_
+    df_ready = df_ready.reindex(columns=expected_features, fill_value=0)
+
     # Prediksi
     try:
         prediction = model.predict(df_ready)
