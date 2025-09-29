@@ -62,6 +62,7 @@ if st.button("Prediksi Gaji"):
     # Prediksi
     try:
         prediction = model.predict(df_ready)
-        st.success(f"Perkiraan gaji: Rp {int(prediction[0]):,}")
+        st.success(f"Perkiraan gaji tahunan: sekitar €{prediction[0]:,.2f}")
     except Exception as e:
         st.error(f"Gagal melakukan prediksi: {e}")
+
